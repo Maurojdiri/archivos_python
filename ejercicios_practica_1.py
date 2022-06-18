@@ -10,6 +10,7 @@
 # Ejercicios con diccionarios
 
 import csv
+from tkinter import N
 
 
 def ej1():
@@ -18,6 +19,8 @@ def ej1():
     # el diccionario vacio debe llamarse "stock"
     
     # stock = ....
+    
+    stock = {}
 
     # Luego de crear el diccionario completelo
     # con el siguiente stock:
@@ -29,7 +32,14 @@ def ej1():
     # son las claves (keys) del diccionario
     # mientras que las cantidades son los valores (values)
 
+    stock['tornillos'] = 100
+    stock['tuercas'] = 150
+    stock['arandelas'] = 300
+
     # Una vez armado el diccionario imprimirlo en pantalla con print
+
+    for k, v in stock.items():
+        print(f'stock de {k}: {v}')
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
 
@@ -40,7 +50,7 @@ def ej2():
     # como una base de datos. Comenzaremos con un diccionario de stock
     # de nuestros productos en cero:
     
-    strock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
+    stock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
 
     # Paso 1:
     # Crear un bucle utilizando while que se ejecute de forma infinita
@@ -66,6 +76,20 @@ def ej2():
     # imprimir en pantalla con print el diccionario con el stock final
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+    
+    while True:
+        producto = input('¿Qué producto desea agregar: ')
+        if producto == 'FIN':
+            break
+        elif producto in stock:
+            cantidad = input('Ingrese la cantidad a agregar: ')
+            stock[producto] +=int(cantidad)
+        else: print ('El producto no existe. Vuelva a intentar')
+    for k,v in stock.items():
+        print(f'Stock de {k}: {v}')
+
+
+
 
 
 if __name__ == '__main__':
